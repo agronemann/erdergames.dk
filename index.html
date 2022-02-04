@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Er der games?</title>
+    <style>
+      body {
+        background: #333333;
+        color: #f9f9f9;
+        font-family: cursive;
+        text-align: center;
+      }
+
+      .question {
+        font-size: 40px;
+      }
+
+      .answer {
+        font-size: 60px;
+        animation: 4s zoom;
+      }
+
+      .answer-yes {
+        color: green;
+      }
+
+      .answer-no {
+        color: red;
+      }
+      
+      @keyframes zoom {
+        from {
+          transform: scale(0);
+        }
+
+        to {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p class="question">Er der games?</p>
+    <p class="answer"></p>
+    <script>
+      const answer = (yesno, message) => {
+        const $answer = document.getElementsByClassName("answer")[0]
+        $answer.classList.add("answer-" + (yesno ? "yes" : "no"))
+        $answer.innerHTML = message
+      }
+
+      const date = new Date()
+
+      if (date.getHours() >= 18 || date.getHours() <= 23) {
+        if (Math.random() > 0.05) {
+          answer(true, "Jaa, især fordi det er aften! ( ͡° ͜ʖ ͡°)")
+        } else {
+          answer(false, "Næ, gå i seng... ಠ_ಠ")
+        }
+      } else if (Math.random() > 0.1) {
+        answer(true, "Ja! ᕦ( ͡° ͜ʖ ͡°)ᕤ")
+      } else {
+        answer(false, "Nej! ¯\\_(ツ)_/¯")
+      }
+    </script>
+  </body>
+</html>
