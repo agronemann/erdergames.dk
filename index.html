@@ -51,7 +51,7 @@
 
       const date = new Date()
 
-      if (date.getHours() >= 18 || date.getHours() <= 23) {
+      if (date.getHours() >= 18 && date.getHours() <= 23) {
         if (Math.random() > 0.05) {
           answer(true, "Jaa, især fordi det er aften! ( ͡° ͜ʖ ͡°)")
         } else {
